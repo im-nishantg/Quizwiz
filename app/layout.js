@@ -4,10 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { SessionProvider } from "next-auth/react"
 import styles from "../styles/globals.css"
 
-export const metadata = {
-  title: 'QuizWiz',
-  description: 'Online test application',
-}
 
 export default function RootLayout({ children }) {
   return (

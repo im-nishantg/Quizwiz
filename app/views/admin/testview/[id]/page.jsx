@@ -13,13 +13,11 @@ import Loader from '../../../../../components/loader';
 
 
 const getData = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/alltests/${id}`, {
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/alltests/${id}`;
+  const res = await fetch(url, {
     cache: 'no-store',
   });
 
-  if (!res.ok) {
-    return notFound();
-  }
   return res.json();
 };
 
@@ -27,7 +25,7 @@ const handleSubmit = async (questionData, id, setQuestion, setIsPostSuccessful) 
 
   try {
     setIsPostSuccessful(false);
-    const res = await fetch(`http://localhost:3000/api/alltests/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/alltests/${id}`, {
       method: 'post',
       headers: {
         "Content-type": "application/json"
@@ -111,7 +109,7 @@ const fillTable = (item, index, id, setIsPostSuccessful) => {
 
       try {
         setIsPostSuccessful(false);
-        const res = await fetch(`http://localhost:3000/api/alltests/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/alltests/${id}`, {
           method: 'delete',
           headers: {
             'Content-type': 'application/json'

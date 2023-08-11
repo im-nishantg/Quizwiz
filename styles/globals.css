@@ -20,9 +20,10 @@ body {
 
 
 a{
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none !important;
+    color: inherit !important;
 }
+
 .test-card{
 
     padding: 1rem;

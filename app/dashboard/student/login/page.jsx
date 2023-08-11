@@ -44,7 +44,7 @@ const studentLogin = () => {
 
 
   return (
-    <div className='w-100 form-wrapper d-flex justify-content-center mt-5 flex-column align-items-center'>
+    <div className='w-100 form-wrapper d-flex justify-content-center flex-column align-items-center'>
       <h1 className='text-center mt-5'> Student Sign In</h1>
 
       <div className='form-container d-flex mt-5 flex-column'>

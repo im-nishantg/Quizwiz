@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Question from "./Questions";
 
 const testSchema = mongoose.Schema({
 
@@ -8,7 +9,7 @@ const testSchema = mongoose.Schema({
     marks:{
         type: String
     },
-    questions:[]
+    questions: []
 })
 
 const Test = mongoose.model("Test", testSchema);

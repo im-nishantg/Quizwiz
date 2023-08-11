@@ -1,6 +1,7 @@
 import Test from "../../../../models/Test";
 import connect from "../../../../utils/db";
 import { NextResponse } from "next/server";
+import Question from "../../../../models/Questions";
 
 export const GET = async (req, { params }) => {
   try {
@@ -28,12 +29,11 @@ export const POST = async(request, {params}) => {
 
     await connect();
     const test = await Test.findById(id);
-
+    const newQuestion = new Question(questionData);
     if(test){
-
-      await test.questions.push(questionData);
+      await test.questions.push(newQuestion);
       await test.save();
-      return new NextResponse("Quesion added successfully", {status: 201});
+      return new NextResponse("Question added successfully", {status: 201});
     }else{
       return new NextResponse("Not found", {status: 404});
     }
@@ -44,11 +44,11 @@ export const POST = async(request, {params}) => {
   }
 }
 
-export const DELETE = async(req, {params}) => {
+export const PUT = async(request, {params}) => {
 
     const id = params?.id;
-    const index = await req.body;
-
+    const index = await request.json();
+    console.log(index);
     try {
       
       await connect();
@@ -59,7 +59,7 @@ export const DELETE = async(req, {params}) => {
       {
         test.questions.splice(index, 1);
         test.save();
-        return new NextResponse("quesion deleted successfully", {status: 201});
+        return new NextResponse("question deleted successfully", {status: 201});
       }
       else{
         return new NextResponse("Test not found", {status: 404});
@@ -68,3 +68,4 @@ export const DELETE = async(req, {params}) => {
         return new NextResponse("Database error", {status: 500});
     }
 }
+

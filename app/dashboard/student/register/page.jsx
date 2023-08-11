@@ -16,7 +16,7 @@ const studentRegister = () => {
 
   if (status === "authenticated") {
     return (
-      <h1> Logged in </h1>
+      router.push('views/student')
     )
   }
 
@@ -59,7 +59,7 @@ const studentRegister = () => {
 
 
   return (
-    <div className='w-100 form-wrapper d-flex justify-content-center mt-5 flex-column align-items-center'>
+    <div className='w-100 form-wrapper d-flex justify-content-center flex-column align-items-center'>
       <h1 className='text-center mt-5'> Student Sign Up</h1>
 
       <div className='form-container d-flex mt-5 flex-column'>
